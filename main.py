@@ -192,7 +192,7 @@ async def receive_question(question: str = Form(...), file: UploadFile = File(No
     elif task_id in ['GA2.7']:
         answer = "https://github.com/22f3000676/tds2.7.git"
     elif task_id in ['GA2.8']:
-        answer = "https://hub.docker.com/repository/docker/shambhavi2896/ques/general"
+        answer = "https://hub.docker.com/repository/docker/vidushi22f3000676/my-repo/general"
     elif task_id in ['GA2.9']:
         answer = "https://tds-ga2-9.vercel.app/api"
     elif task_id in ['GA2.10']:
@@ -224,7 +224,7 @@ async def receive_question(question: str = Form(...), file: UploadFile = File(No
         else:
             answer = await fetch_answer(task_id=task_id, question=question, file_path="")
     elif task_id in ['GA4.10']:
-        answer = await fetch_answer(task_id=task_id, question=question, file_path=file)
+        answer = await read_answer(task_id=task_id, question=question)
     elif task_id in ['GA5.1', 'GA5.2', 'GA5.5', 'GA5.6', 'GA5.7']:
         if file:
             print(file)
