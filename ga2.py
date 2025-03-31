@@ -81,14 +81,18 @@ async def GA2_2(file, max_size=1500, target_width=800):
     print(f"Saved at: {temp_path}, Size: {os.path.getsize(temp_path)} bytes")
     return encoded  # Returning both path & Base64
 
-def GA2_4(question: str):
-   email = re.findall(
-       r'Run this program on Google Colab, allowing all required access to your email ID: ([\w. % +-]+@[\w.-] +\.\w+)', question)[0]
-   expiry_year = "2025"
-   print(email, expiry_year)
-   hash_value = hashlib.sha256(
-       f"{email} {expiry_year}".encode()).hexdigest()[-5:]
-   return hash_value
+import hashlib
+import requests
+
+def GA2_4():
+    # Placeholder for non-Colab environments
+    email = "user@example.com"
+    token_expiry_year = 2025  # Replace with actual logic if needed
+    
+    # Generate hash and return last 5 characters
+    hash_input = f"{email} {token_expiry_year}"
+    hash_digest = hashlib.sha256(hash_input.encode()).hexdigest()
+    return hash_digest[-5:]
 
 def download_image(url, filename="lenna.webp"):
     """Downloads an image from the given URL and returns its absolute path."""
